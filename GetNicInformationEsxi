@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for i in $(govc find -type h | rev | cut -d '/' -f 1 | rev)
+do
+echo $i
+govc host.esxcli --host.dns=$i network nic list
+done
