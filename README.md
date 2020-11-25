@@ -1,5 +1,5 @@
 # govc
-Repo with govc script to manage Vmware
+Repo with bash script using govc to manage Vmware Esxi host and resource. 
 
 To connect to your Vcenter, use these ENV variables : 
 
