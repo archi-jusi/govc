@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Govc required than vmtools or openvm-tools are installed on each vms
+
+for i in $(govc find -type m | rev | cut -d '/' -f1 | rev)
+do
+echo $i
+govc guest.df -vm $i
+done
