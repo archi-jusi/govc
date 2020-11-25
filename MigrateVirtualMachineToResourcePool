@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cluster="NameCluster"
+namegroup="NameDRSGroup"
+pooldestname="ResourcePoolName"
+
+for vm in $(govc cluster.group.ls -cluster $cluster -name $namegroup)
+do
+echo $vm
+govc vm.migrate -pool $pooldestname $vm
+done
