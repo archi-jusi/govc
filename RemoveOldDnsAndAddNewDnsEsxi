@@ -1,0 +1,17 @@
+#!/bin/bash
+
+OLDDNS1='192.168.100.254'
+OLDDNS2='192.168.200.234'
+
+NEWDNS1='192.168.10.100'
+NEWDNS2='192.168.20.100'
+
+for i in 1 2 3 4 21 22 23 24
+do
+echo superEsxiserver$i.mtx.vodafonemalta.com
+govc host.esxcli --host.dns=superEsxiserver$i.vodafonemalta.com network ip dns server remove -s $OLDDNS1
+govc host.esxcli --host.dns=superEsxiserver$i.vodafonemalta.com network ip dns server add -s $NEWDNS1
+govc host.esxcli --host.dns=superEsxiserver$i.vodafonemalta.com network ip dns server remove -s $OLDDNS2
+govc host.esxcli --host.dns=superEsxiserver$i.vodafonemalta.com network ip dns server add -s $NEWDNS2
+govc host.esxcli --host.dns=superEsxiserver$i.vodafonemalta.com network ip dns server list
+done
